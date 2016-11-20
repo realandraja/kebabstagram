@@ -1,2 +1,0 @@
-# kebabstagram
-Kebabstagram PHP Project
