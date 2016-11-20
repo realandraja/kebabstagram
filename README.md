@@ -11,7 +11,7 @@ With kebabstagram You can :
   
 ### Installation
 
-KEBABSTAGRAM requires Rewriting module to be enable .
+KEBABSTAGRAM requires Rewriting module to be enabled .
 
 To install this app , you need to follow those instructions :
 
