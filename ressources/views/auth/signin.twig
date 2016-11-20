@@ -1,0 +1,45 @@
+{% extends 'templates/app.twig'%}
+
+{% block content %}
+    
+    <div class="rown">
+        <div class="row">
+
+    <form class="col s12" action="{{ path_for('auth.signin') }}" method="POST" >
+
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input name = "login" id="login" type="text">
+          <label for="login">Username or E-mail</label>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock</i>
+          <input name="password" id="password" type="password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+
+     
+     <div class="row">
+     <div class="input-field col s12">
+       <div class="col s10 offset-s1 center-align">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Log in
+        <i class="material-icons right">send</i>
+      </button>
+        </div>
+
+        </div>
+      </div>
+
+      {{  csrf.field | raw }}
+      
+      </form>
+
+
+    </div>
+    </div>
+{% endblock %}

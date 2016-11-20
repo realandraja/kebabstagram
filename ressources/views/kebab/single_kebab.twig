@@ -1,0 +1,37 @@
+{% extends 'templates/app.twig'%}
+
+{% block content %}
+
+
+<h1>Kebabs</h1>
+
+
+    <div class="card horizontal">
+
+         <div class="card-image">
+            <img class="responsive-img" style="max-height:300px;" src="{{ uploaddir ~ kebab.nom_image }}">
+         </div>
+
+         <div class="card-stacked">
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{ kebab.titre }}</span>
+                <p class="valign">{{ kebab.description }}</p>
+                <br>
+                 {% for tag in kebab.tags %}
+                    <div class="chip"><a href="{{ base_path ~ '/tags/' ~ tag.label }}">{{ tag.label }}</a></div>
+                  {% endfor %}
+                 <br> <br> <br>
+                  <i class="material-icons prefix">room</i> {{ kebab.endroit  }}
+             </div>
+
+            <div class="card-action">
+              <strong> Last update : </strong> {{ kebab.updated_at }}
+            </div>
+        </div> 
+    </div>
+
+
+ 
+
+
+{% endblock %}

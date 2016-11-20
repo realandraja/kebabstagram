@@ -1,0 +1,103 @@
+{% extends 'templates/app.twig'%}
+
+{% block content %}
+
+    
+     <div class="row">
+
+     <form enctype="multipart/form-data" action="{{ path_for('new_kebab') }}" method="POST" class="col s12">
+
+   
+        <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">input</i>
+          <input name="titre" id="titre" type="text" maxlength="100" class="{{ errors.titre ? ' invalid' : '' }}" value="{{ old.titre }}">
+          <label  data-error="{{ errors.titre ? errors.titre | first : '' }}" for="nom">Title</label>
+        </div>
+        </div>
+
+             <div class="row">
+        <div class="input-field col s12">
+           <i class="material-icons prefix">info</i>
+           <textarea class="materialize-textarea {{ errors.description ? ' invalid' : '' }}" name="description" id="description" rows="3">{{ old.description }}</textarea>
+          <label  data-error="{{ errors.description ? '' | first : '' }}" for="description">Description</label>
+        </div>
+      </div>
+
+
+        <div class="row">
+        <div class="input-field col s12">
+         <i class="material-icons prefix">room</i>
+          <input name="endroit" id="endroit" type="text" maxlength="100" class="{{ errors.endroit ? ' invalid' : '' }}" value="{{ old.endroit }}">
+          <label  data-error="{{ errors.endroit ? errors.endroit | first : '' }}" for="endroit">Location</label>
+        </div>
+        </div>
+
+
+         <div class="row">
+          <div class="input-field col s12">
+          <i class="material-icons prefix">label</i>
+          <label  data-error="{{ errors.tags ? errors.tags[1] : '' }}" for="tags">Tags ( Max : 6 ) </label>
+          </div>
+
+         </div>
+
+
+        <div class="row" >
+
+            <div class="input-field col s4">
+              <input name="tags[]" id="tags" type="text" maxlength="100">
+            </div>
+            <div class="input-field col s4">
+              <input name="tags[]" id="tags" type="text" maxlength="100">
+            </div>
+            <div class="input-field col s4">
+              <input name="tags[]" id="tags" type="text" maxlength="100">
+            </div>
+            <div class="input-field col s4">
+              <input name="tags[]" id="tags" type="text" maxlength="100">
+            </div>
+            <div class="input-field col s4">
+              <input name="tags[]" id="tags" type="text" maxlength="100">
+            </div>
+            <div class="input-field col s4">
+              <input name="tags[]" id="tags" type="text" maxlength="100">
+            </div>
+        </div>
+
+           <div class ="row red-text">
+           {{ errors.tags ? errors.tags[1] : '' }}
+         </div>
+          
+            <div class="row">
+          <div class="file-field input-field col s12">
+          <div class="btn">
+            <span>Image</span>
+            <input type="file" name ="file" id="file">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+          </div>
+
+         <div class="row">
+         <div class="input-field col s12">
+           <div class="col s10 offset-s1 center-align">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+            </div>
+
+            </div>
+          </div>
+
+
+       {{  csrf.field | raw }}
+
+      </form>
+
+
+    </div>
+
+{% endblock %}

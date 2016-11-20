@@ -1,0 +1,39 @@
+{% extends 'templates/app.twig'%}
+
+{% block content %}
+
+    {% for kebab in kb %}
+
+    <div class="card horizontal">
+
+         <div class="card-image">
+            <img style="max-height:300px;" src="{{ uploaddir ~ kebab.nom_image }}">
+         </div>
+
+         <div class="card-stacked">
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">{{ kebab.titre }}</span>
+                <p>{{ kebab.description }}</p>
+                <br>
+                 {% for tag in kebab.tags %}
+                    <div class="chip hide-on-med-and-down"><a href="{{ base_path ~ '/tags/' ~ tag.label }}">{{ tag.label }}</a></div>
+                  {% endfor %}
+             </div>
+
+            <div class="card-action">
+                <a href="/slim/public/kebabs/{{kebab.id}}">READ MORE</a>
+            </div>
+        </div> 
+    </div>
+
+    {% endfor %}
+    
+        <ul class="pagination center-align">
+
+            <li class="{{ kb.previousPageUrl ? 'waves-effect' : 'disabled' }}"><a href="{{ kb.previousPageUrl ? base_path ~ kb.previousPageUrl : '#' }}"><i class="material-icons">chevron_left</i></a></li>
+
+            <li class="{{ kb.nextPageUrl ? 'waves-effect' : 'disabled' }}"><a href="{{ kb.nextPageUrl ? base_path ~ kb.nextPageUrl : '#' }}"><i class="material-icons">chevron_right</i></a></li>
+
+         </ul>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% if flash.getMessage('info') %}
+
+ <div class="card-panel teal lighten-2">{{ flash.getMessage('info') | first }}</div>
+
+{% endif %}
+
+{% if flash.getMessage('error') %}
+
+    <div class="card-panel red darken-1">{{ flash.getMessage('error') | first }}</div>
+
+{% endif %}
+

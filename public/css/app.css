@@ -1,0 +1,22 @@
+html {
+   font-family: serif;
+}
+
+body
+{
+	padding-top:80px;
+	padding-bottom:40px;
+}
+
+@-webkit-keyframes autofill {
+    to {
+        color: #666;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+

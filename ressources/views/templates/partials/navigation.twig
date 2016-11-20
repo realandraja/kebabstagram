@@ -1,0 +1,54 @@
+
+<nav>
+
+
+{% if auth.check %}
+
+
+
+<div class="nav-wrapper">
+
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="{{ path_for('auth.signout') }}">Logout</a></li>
+        </ul>
+
+      <a href="#" class="brand-logo center">KebabStagram</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+     
+    <ul class="right hide-on-med-and-down">
+      <li><a href="{{ path_for('new_kebab') }}"  class="waves-effect waves-light btn">New Kebab</a></li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ auth.user.pseudo }}<i class="material-icons right">arrow_drop_down</i></a></li>
+
+    </ul>
+
+    <ul class="side-nav" id="mobile-demo">
+       <li><a href="{{ path_for('new_kebab') }}"  class="waves-effect waves-light btn">New Kebab</a></li>
+      <li><a href="{{ path_for('auth.signout') }}">Logout</a></li>
+      </ul>
+
+</div>
+
+
+
+ {% else %}
+
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">KebabStagram</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{ path_for('auth.signin') }}">Connexion</a></li>
+        <li><a href="{{ path_for('auth.signup') }}">Inscription</a></li>
+      </ul>
+
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="{{ path_for('auth.signin') }}">Connexion</a></li>
+        <li><a href="{{ path_for('auth.signup') }}">Inscription</a></li>
+      </ul>
+    </div>
+
+
+ {% endif %}
+
+</nav>
